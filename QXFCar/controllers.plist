@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>className</key>
+		<string>HomeController</string>
+		<key>title</key>
+		<string>首页</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ChooseController</string>
+		<key>title</key>
+		<string>筛车</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>SalesController</string>
+		<key>title</key>
+		<string>排行榜</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>MySetController</string>
+		<key>title</key>
+		<string>我的</string>
+	</dict>
+</array>
+</plist>

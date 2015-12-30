@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "TabBarController.h"
+#import "WelcomViewController.h"
+#define KEY_SHOW_WELCOM @"kAlreadyShowWelcomPage"
 
 @interface AppDelegate ()
 
@@ -16,8 +19,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [self createRootViewController];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (UIViewController *)createRootViewController {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY_SHOW_WELCOM];
+    
+    BOOL alreadShow = [[NSUserDefaults standardUserDefaults] boolForKey:KEY_SHOW_WELCOM];
+    if (alreadShow) {
+        return [[TabBarController alloc]init];
+    }else {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KEY_SHOW_WELCOM];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return [[WelcomViewController alloc]init];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
